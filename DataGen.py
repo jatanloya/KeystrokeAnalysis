@@ -1,13 +1,10 @@
-
-
-print("hello")
 import pynput
 import time
 from pynput.keyboard import Key, Listener
 import logging
 l=[]
 time_list=[]
-log_dir = r"D:/studis/EDI SEM4/"
+log_dir = r""
 logging.basicConfig(filename = (log_dir + "keyLog.txt"), level=logging.DEBUG, format='%(message)s')
 
 
@@ -19,13 +16,13 @@ def on_press(key):
    #print(str(key)+str(time.time())+"\n")
    return False
    
-inp=input("enter password to start")
+inp=input("Enter the password")
 
 while(True):
-    y=input("you want to train more")
+    y=input("Do you want to train more?")
     if(y=='n'): break
     
-    s=input("enter ENTER to start")
+    s=input("Press ENTER to start")
     for i in range(len(inp)):
         with Listener(on_press=on_press) as listener:
             listener.join()
