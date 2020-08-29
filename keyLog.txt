@@ -1,0 +1,106 @@
+release 1597178978.8596418
+release Key.enter
+1597178984.811923
+Key.alt
+1597178984.881434
+Key.tab
+release 1597178984.9710464
+release Key.alt
+release 1597178985.0534973
+release Key.tab
+1597178986.9156477
+'t'
+1597178986.9915314
+'a'
+release 1597178987.0233042
+release 't'
+1597179061.8033879
+'t'
+release 1597179061.936055
+release 't'
+1597179062.0433908
+'r'
+release 1597179062.1598296
+release 'r'
+1597179063.284314
+'u'
+release 1597179063.4132848
+release 'u'
+1597179063.6260595
+'n'
+release 1597179063.7829525
+release 'n'
+1597179063.9729476
+'q'
+release 1597179064.1548991
+release 'q'
+1597179064.396881
+'e'
+release 1597179064.5878317
+release 'e'
+1597179064.6910975
+'e'
+release 1597179064.7275298
+release 'e'
+1597179065.1501524
+'s'
+release 1597179065.2426252
+release 's'
+1597179188.95195
+'t'
+release 1597179189.0671422
+release 't'
+1597179189.1837761
+'r'
+release 1597179189.2192056
+release 'a'
+1597179189.547936
+'u'
+release 1597179189.6880648
+release 'u'
+1597179189.8312047
+'n'
+release 1597179190.0074925
+release 'n'
+1597179190.2638824
+'2'
+release 1597179190.4290547
+release '2'
+1597179190.5187938
+'3'
+release 1597179190.6814098
+release '3'
+1597179194.8848088
+'4'
+release 1597179195.081618
+release '4'
+1597179195.679492
+'4'
+release 1597179195.8421178
+release '4'
+Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/xorg.py", line 458, in _handler
+    self._handle(self._display_stop, event)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/keyboard/_xorg.py", line 552, in _handle
+    self.on_release(key)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "DataGen.py", line 70, in on_release
+    realease_time_list.append("released "+str*(key))
+TypeError: unsupported operand type(s) for *: 'type' and 'Key'
+Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/xorg.py", line 458, in _handler
+    self._handle(self._display_stop, event)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/keyboard/_xorg.py", line 549, in _handle
+    self.on_press(key)
+  File "/home/tarun/.local/lib/python3.6/site-packages/pynput/_util/__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "DataGen.py", line 61, in on_press
+    realease_time_list.append("pressed "+str*(key))
+TypeError: unsupported operand type(s) for *: 'type' and 'KeyCode'
