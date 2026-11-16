@@ -1,31 +1,40 @@
-import pynput
 import time
+
 from pynput.keyboard import Key, Listener
-import logging
-l=[]
-time_list=[]
-log_dir = r""
-logging.basicConfig(filename = (log_dir + "keyLog.txt"), level=logging.DEBUG, format='%(message)s')
+
+# Keys whose presses are not recorded as part of the password timing.
+IGNORED_KEYS = {
+    Key.backspace, Key.caps_lock, Key.shift, Key.shift_l, Key.shift_r,
+    Key.up, Key.down, Key.right, Key.left, Key.enter,
+}
+
+samples = []
+time_list = []
 
 
 def on_press(key):
-   if(str(key)=='Key.backspace' or str(key)=='Key.caps_lock' or str(key)=='Key.shift' or str(key)=='Key.up' or str(key)=='Key.down' or str(key)=='Key.right' or str(key)=='Key.left'): return True
-   time_list.append(time.time())
-   #logging.info(str(time.time()))
-   #logging.info(str(key))
-   #print(str(key)+str(time.time())+"\n")
-   return False
-   
-inp=input("Enter the password")
+    if key in IGNORED_KEYS:
+        return
+    time_list.append(time.time())
 
-while(True):
-    y=input("Do you want to train more?")
-    if(y=='n'): break
-    
-    s=input("Press ENTER to start")
-    for i in range(len(inp)):
-        with Listener(on_press=on_press) as listener:
-            listener.join()
-    l.append(tuple(time_list))
-    time_list=[]
-    print(l)    
+
+password = input("Enter the password: ")
+
+while True:
+    answer = input("Do you want to train more? (y/n) ")
+    if answer.strip().lower() == "n":
+        break
+
+    time_list = []
+    # Record key-press timestamps while the user types the password into
+    # input(), so the typed characters are consumed and don't leak into the
+    # next prompt.
+    with Listener(on_press=on_press):
+        attempt = input("Type the password and press ENTER: ")
+
+    if attempt != password or len(time_list) != len(password):
+        print("Mistyped, sample discarded.")
+        continue
+
+    samples.append(tuple(time_list))
+    print(samples)
