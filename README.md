@@ -25,6 +25,7 @@ Run the scripts from the repository root (they read `DSL-StrongPasswordData.csv`
 | `python Manhatton_scale_detector.py` | Average Equal Error Rate (EER) of the scaled Manhattan anomaly detector across all subjects |
 | `python SVM.py` | Trains an RBF SVM to identify the subject and prints test accuracy |
 | `python NeuralNet.py` | Trains a dense network (log-scaled features, 512→256 with dropout, early stopping) to identify the subject, prints test accuracy and plots accuracy per epoch |
+| `python hpsearch.py STAGE` | Staged hyperparameter search behind `NeuralNet.py` (0 = preprocessing, 1 = architecture, 2 = regularisation, 3 = optimiser), scored on a validation split |
 | `python DataGen.py` | Records key-press timestamps while you type a password (needs keyboard-monitoring permission on macOS) |
 | `python GUI/logger.py`, `python GUI/login.py` | Basic Tkinter GUIs for entering a password and a demo login screen |
 
