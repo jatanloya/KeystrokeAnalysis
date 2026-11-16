@@ -1,12 +1,12 @@
 from tkinter import messagebox, Label, Button, FALSE, Tk, Entry
 
-username = ("jatan")
-password = ("")
+username = "jatan"
+password = ""
 
 
 def try_login():
     print("Trying to login...")
-    if username_guess.get() == username:
+    if username_guess.get() == username and password_guess.get() == password:
         messagebox.showinfo("-- COMPLETE --", "Login Successful", icon="info")
     else:
         messagebox.showinfo("-- ERROR --", "Please enter valid credentials!", icon="warning")
@@ -21,7 +21,7 @@ username_guess = Entry(window)
 password_text = Label(window, text="Password:")
 password_guess = Entry(window, show="*")
 
-attempt_login = Button(text="Login", command=try_login)
+attempt_login = Button(window, text="Login", command=try_login)
 
 username_text.pack()
 username_guess.pack()
